@@ -1,0 +1,6 @@
+package infactor;
+
+public class Snippet {
+	?	Supplier’s dashboard page : After receiving payment remove “Balance Amount” Option from Payment received details
+}
+

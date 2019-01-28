@@ -1,0 +1,10 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Registration,org.eclipse.launchbar.core.descriptorType.default\:Loginnnnn,org.eclipse.launchbar.core.descriptorType.default\:Login,org.eclipse.launchbar.core.descriptorType.default\:AfterLogin,org.eclipse.launchbar.core.descriptorType.default\:Workflow,org.eclipse.launchbar.core.descriptorType.default\:buyerdasboard
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:AfterLogin/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:AfterLogin/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Login/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Login/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
+org.eclipse.launchbar.core.descriptorType.default\:Registration/activeLaunchMode=run
+org.eclipse.launchbar.core.descriptorType.default\:Registration/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
