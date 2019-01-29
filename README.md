@@ -16,24 +16,24 @@ You will find client drivers for other languages there, but only choose the one 
 
 
 ## Step 4 - Download Selenium Standalone Server, Browser Drivers, POI jar files
-	
-	 The Selenium Server is needed in order to run Remote Selenium WebDriver. 
-	 Visit: https://www.seleniumhq.org/download/ and Download the latest version 3.141.59
 
-	 **Browser Drivers:**
-         Mozilla GeckoDriver	https://github.com/mozilla/geckodriver/releases
-	 Google Chrome Driver   https://sites.google.com/a/chromium.org/chromedriver/downloads
+The Selenium Server is needed in order to run Remote Selenium WebDriver. 
 
-	 **POI jar files for Read & Write Data from Excel File:** 
-	 https://poi.apache.org/download.html
+Visit: https://www.seleniumhq.org/download/ and Download the latest version 3.141.59
 
-	 **Preconditions for Write Excel Files Using Apache POI In Selenium WebDriver:**
-	 Create an xlsx file and save it at particular location. 
-	 Enter some data to read using Selenium. 
-	 Close the created excel file before executing the script. 
-	 Go to option ìFormat Cellsî and under Number Tab option, select Text and click on OK. 
-	 By default it will be general, you need to make it as Number. If you donít make it as text, there is a chance of NullPointerException error.
+**Browser Drivers:**
 
+
+Mozilla GeckoDriver	: https://github.com/mozilla/geckodriver/releases
+
+Google Chrome Driver : https://sites.google.com/a/chromium.org/chromedriver/downloads
+
+**POI jar files for Read & Write Data from Excel File**:
+https://poi.apache.org/download.html
+
+**Preconditions for Write Excel Files Using Apache POI In Selenium WebDriver:**
+
+Create an xlsx file and save it at particular location. Enter some data to read using Selenium. Close the created excel file before executing the script. Go to option ‚ÄúFormat Cells‚Äù and under Number Tab option, select Text and click on OK.  By default it will be general, you need to make it as Number. If you don‚Äôt make it as text, there is a chance of NullPointerException error.
 
 ## Step 5 - Configure Eclipse IDE with WebDriver
 
