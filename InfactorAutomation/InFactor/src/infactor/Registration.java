@@ -1,103 +1,81 @@
 package infactor;
 
-import java.io.FileInputStream;
+import java.io.File;
 
-import org.apache.poi.xssf.usermodel.XSSFCell;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import javax.imageio.ImageIO;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 public class Registration {
 
 	public static void main(String[] args) throws Exception {
-		System.setProperty("webdriver.gecko.driver", "F:\\Selenium\\geckodriver-v0.21.0-win64\\geckodriver.exe");
+		//Here we have to set the path of Driver (ChromeDriver / FirefoxDriver)
+		System.setProperty("webdriver.chrome.driver", "F:\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		
-		WebDriver wd=new FirefoxDriver();
+		// Create a new instance of the Chrome driver
+		WebDriver wd=new ChromeDriver();
+		JavascriptExecutor js = (JavascriptExecutor) wd; 
 		
+		//Launch the http://test.infactor.io/signup 
 		wd.get("http://test.infactor.io/signup");
-		Thread.sleep(1000);
 		
-		 FileInputStream fi=new FileInputStream("F:\\infactor.xlsx");
-		 
-
-			XSSFWorkbook wb=new XSSFWorkbook(fi);
-			XSSFSheet sh=wb.getSheet("Signup");
-			XSSFCell fn,ln,email,pw,cpw,r;
+		//Resize current window to the set dimension
+	    wd.manage().window().maximize();
+	        
+	    //To Delay execution for 5 sec. as to view the maximize browser
+		Thread.sleep(5000); 
 			
-			for(int i=1; i<=sh.getLastRowNum(); i++)
-			{
-				fn=sh.getRow(i).getCell(0);//first name 
-				//rs=sh.getRow(i).createCell(1);
-				ln=sh.getRow(i).getCell(2); //last name
-				//rs1=sh.getRow(i).createCell(3);
-				email=sh.getRow(i).createCell(4); //email id
-				//rs2=sh.getRow(i).createCell(5);
-				pw=sh.getRow(i).createCell(6); //password
-				//rs3=sh.getRow(i).createCell(7);
-				cpw=sh.getRow(i).createCell(8); //confirm password
-				//rs4=sh.getRow(i).createCell(9);
-				r=sh.getRow(i).createCell(10); // Result:Pass/Fail
+	        
+		//The below entered values for Buyer's account, if you want to register as a Supplier or 
+		//Financer then please enter your details in sendkeys()function with double quotes
+		
+		wd.findElement(By.id("firstName")).sendKeys("BuyerABC"); //Set the value for First name
 				
-			try{
-					try{
-					wd.findElement(By.id("firstName")).sendKeys(fn.toString());
-					}
-					catch(Exception e){
-					}
-					try
-					{
-					wd.findElement(By.id("lastName")).sendKeys(ln.toString());
-					}
-					catch(Exception e)
-					{	
-					}
-					try
-					{
-					wd.findElement(By.id("email")).sendKeys(email.toString());
-					}
-					catch(Exception e)
-					{	
-					}
-					try
-					{
-					wd.findElement(By.id("password")).sendKeys(pw.toString());
-					}
-					catch(Exception e)
-					{	
-					}
-					try
-					{
-					wd.findElement(By.id("confirmPassword")).sendKeys(cpw.toString());
-					}
-					catch(Exception e)
-					{	
-					}
+		wd.findElement(By.id("lastName")).sendKeys("B");  //Set the value for Last name 
+				
+		wd.findElement(By.id("email")).sendKeys("buyer@gmail.com"); //Set the value for Email ID 
 					
-					
-					wd.findElement(By.className("btn btn-primary btn-corner-login btn-lg")).click();//login
-					Thread.sleep(5000);
-					
-					//wd.findElement(By.xpath("/html/body/div[1]/div/div[2]/div/ul/li[2]/a/i")).click();//logout
-					
-					System.out.println("Pass");
-					r.setCellValue("Pass");
-					Thread.sleep(4000);	
-					wd.navigate().to("http://test.infactor.io/signup");
-					Thread.sleep(4000);	
-					
-					
-				} 
-				catch(Exception e)
-				{
-					System.out.println("Fail");
-					r.setCellValue("Fail");
-					
-					wd.navigate().to("http://test.infactor.io/signup");
-					Thread.sleep(4000);
-				}
-			
-			}
+		wd.findElement(By.id("password")).sendKeys("password");  //Set the value for Password 
+		
+		// This  will scroll down the page by  400 pixel vertical
+		js.executeScript("window.scrollBy(0,400)"); 
+		Thread.sleep(2000);
+				
+		wd.findElement(By.id("confirmPassword")).sendKeys("password"); //Set the value for Confirm password
+		
+		//ForBuyer Uncomment this code 
+		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/div/div[3]/section/div[2]"
+				+ "/form/div[6]/div/div[2]/ul/li/label")).click(); Thread.sleep(2000);
+		
+		//For Supplier Uncomment this code
+//		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/div/div[3]/section/div[2]"
+//				+ "/form/div[6]/div/div[3]/ul/li/label")).click(); Thread.sleep(2000);
+		
+		//For Financer Uncomment this code
+//		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/div/div[3]/section/div[2]"
+//				+ "/form/div[6]/div/div[4]/ul/li/label")).click(); Thread.sleep(2000);
+		
+		wd.findElement(By.id("exampleCheck1")).click(); 
+		//Here we have to agree the Terms & Conditions by selecting this checkbox
+		
+		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/div/div[3]/section"
+				+ "/div[2]/form/div[8]/button")).click(); //Sign Up Button
+		Thread.sleep(2000);
+		
+		//Fullpage screenshot 
+	    Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(wd);
+	    ImageIO.write(fpScreenshot.getImage(),"PNG",new File("F:\\Screenshots\\infactor//Registration.png"));
+	    Thread.sleep(4000);	
+		
+		//Closing browser
+		wd.close();
 	}
+
 }
