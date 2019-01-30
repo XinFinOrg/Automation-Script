@@ -16,7 +16,7 @@ public class LoginWithExcel {
 
 	public static void main(String[] args) throws Exception 
 	{	
-		//Here we have to set the path of Driver (ChromeDriver / FirefoxDriver)
+		//Set the path of Driver (ChromeDriver / FirefoxDriver)
 		System.setProperty("webdriver.chrome.driver", "F:\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		WebDriver wd = new ChromeDriver();
 		
@@ -31,9 +31,9 @@ public class LoginWithExcel {
 		wd.get("http://test.infactor.io/login");
 		
 		//Resize current window to the set dimension
-	    wd.manage().window().maximize();
+	        wd.manage().window().maximize();
 	    
-	    // To Delay execution for 5 sec. as to view the maximize browser
+	        // To Delay execution for 5 sec. as to view the maximize browser
 		Thread.sleep(5000);
 		
 		// Specify the path of file
@@ -43,7 +43,7 @@ public class LoginWithExcel {
 		XSSFWorkbook wb=new XSSFWorkbook(fi);
 			
 		// Call the getSheet() method of Workbook and pass the Sheet Name here. 
-	    // In this case I have given the sheet name as ìLoginî 
+	        // In this case I have given the sheet name as ‚ÄúLogin‚Äù 
 		XSSFSheet sh=wb.getSheet("Login");
 		XSSFCell un,pw,r,rs,rs1;
 			
@@ -59,7 +59,7 @@ public class LoginWithExcel {
 				rs1=sh.getRow(i).createCell(3);
 				r=sh.getRow(i).createCell(4);
 				
-		try{
+		 try{
 			try{
 			wd.findElement(By.id("email")).sendKeys(un.toString()); // Enter UserName
 			}
@@ -102,8 +102,9 @@ public class LoginWithExcel {
 			Thread.sleep(4000);	
 			
 					}				
-		catch(Exception e)
-		{		//If Username/email is invalid then the error message will be printed in excel sheet
+		  catch(Exception e)
+		  {		
+			        //If Username/email is invalid then the error message will be printed in excel sheet
 				if(wd.getPageSource().contains("Invalid email, please enter valid email.")){
 				rs.setCellValue("Invalid email, please enter valid email.");	
 				}
@@ -116,13 +117,13 @@ public class LoginWithExcel {
 				Thread.sleep(4000);			
 			
 			 }
-		}
+		   }
 				
-		fi.close();
-		// Here we need to specify where you want to save file
-		FileOutputStream fo=new FileOutputStream("F:\\infactor.xlsx");
-		// finally write content 
-		wb.write(fo);
-		}
+		  fi.close();
+		  // Here we need to specify where you want to save file
+		  FileOutputStream fo=new FileOutputStream("F:\\infactor.xlsx");
+		  // finally write content 
+		  wb.write(fo);
+		  }
 
 	}
