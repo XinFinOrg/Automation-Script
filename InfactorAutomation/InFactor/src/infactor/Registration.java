@@ -15,7 +15,7 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 
 public class Registration {
 
-	public static void main(String[] args) throws Exception {
+	        public static void main(String[] args) throws Exception {
 		//Here we have to set the path of Driver (ChromeDriver / FirefoxDriver)
 		System.setProperty("webdriver.chrome.driver", "F:\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		
@@ -27,9 +27,9 @@ public class Registration {
 		wd.get("http://test.infactor.io/signup");
 		
 		//Resize current window to the set dimension
-	    wd.manage().window().maximize();
+	        wd.manage().window().maximize();
 	        
-	    //To Delay execution for 5 sec. as to view the maximize browser
+	        //To Delay execution for 5 sec. as to view the maximize browser
 		Thread.sleep(5000); 
 			
 	        
@@ -70,9 +70,9 @@ public class Registration {
 		Thread.sleep(2000);
 		
 		//Fullpage screenshot 
-	    Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(wd);
-	    ImageIO.write(fpScreenshot.getImage(),"PNG",new File("F:\\Screenshots\\infactor//Registration.png"));
-	    Thread.sleep(4000);	
+	        Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(wd);
+	        ImageIO.write(fpScreenshot.getImage(),"PNG",new File("F:\\Screenshots\\infactor//Registration.png"));
+	        Thread.sleep(4000);	
 		
 		//Closing browser
 		wd.close();
