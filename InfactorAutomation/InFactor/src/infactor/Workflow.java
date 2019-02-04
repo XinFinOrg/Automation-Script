@@ -91,7 +91,10 @@ public static void main(String[] args) throws Exception {
 		Thread.sleep(10000); //PO date calendar
 		
 		wd.findElement(By.id("purchaseAmount")).sendKeys("100");
-//		// PO Amount 
+		Thread.sleep(6000); // PO Amount 
+		
+		wd.findElement(By.name("file")).sendKeys("C:\\Users\\Tradefinex\\Downloads\\1547210352041_vrush.jpg");
+		Thread.sleep(2000); 
 		
 		js.executeScript("window.scrollBy(0,300)");
 		Thread.sleep(2000);
@@ -107,7 +110,7 @@ public static void main(String[] args) throws Exception {
 		wd.findElement(By.id("grnNo")).sendKeys("GRN1");
 		Thread.sleep(1000); //GRN number
 		wd.findElement(By.id("grnDate")).click();
-		Thread.sleep(4000); //GRN date calendar
+		Thread.sleep(5000); //GRN date calendar
 	    
 //		//Fullpage screenshots
 	    Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(wd);
@@ -116,6 +119,7 @@ public static void main(String[] args) throws Exception {
 	    
 		wd.findElement(By.xpath("/html/body/div[4]/div[2]/div/button[2]")).click();// Click on Submit button
 		Thread.sleep(8000);
+		
 		wd.findElement(By.id("dropdownToggle")).click();//Click on dropdown
 		Thread.sleep(8000);
 
@@ -136,7 +140,7 @@ public static void main(String[] args) throws Exception {
 
 		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/div/div[5]/section"
 				+ "/div[2]/form/div[3]/button")).click();//login
-		Thread.sleep(8000); 
+		Thread.sleep(10000); 
 		
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[3]/section"
 				+ "/div/div/div/div/table/tbody/tr[1]")).click(); //View details
@@ -150,7 +154,7 @@ public static void main(String[] args) throws Exception {
 		
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[4]/section"
 				+ "/div/div/div/div[5]/div[2]/div[2]/button")).click();//Approved button
-		Thread.sleep(6000);
+		Thread.sleep(8000);
 	 	
 		wd.findElement(By.id("dropdownToggle")).click();//dropdown
 		Thread.sleep(10000);
@@ -208,7 +212,7 @@ public static void main(String[] args) throws Exception {
 				+ "/div/div[3]/section/div/div/div/div/table/tbody/tr[1]")).click(); //View details
 		
 		js.executeScript("window.scrollBy(0,250)");
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
 				+ "div/div[4]/section/div/div/div[1]/div[9]/div[3]/div[1]/button")).click(); //Proceed button
@@ -219,7 +223,7 @@ public static void main(String[] args) throws Exception {
 		
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[4]/section"
 				+ "/div/div/div[1]/div[8]/div[4]/div")); 
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 
 	    //Manually handle the slider within 8 sec
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[4]/section"
@@ -273,9 +277,9 @@ public static void main(String[] args) throws Exception {
 		
 		wd.findElement(By.id("description")).sendKeys("Accepting proposal");
 		Thread.sleep(4000);
-		
+								
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section"
-				+ "/div/div[4]/section/div/div/div/div[12]/div[6]/div[2]/button")).click();
+				+ "/div/div[4]/section/div/div/div/div[12]/div[6]/div[2]/button")).click(); 
 		Thread.sleep(8000);
 		
 		wd.findElement(By.id("dropdownToggle")).click();//dropdown
@@ -283,6 +287,113 @@ public static void main(String[] args) throws Exception {
 								
 		wd.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/ul/li[2]/ul/li/a")).click();//logout
 		
+// 6. FINANCER'S LOGIN - First Payment
+//----------------------------------------------------------------------------------
+		wd.get("http://test.infactor.io/login");
+		Thread.sleep(1000); 
+		
+		wd.findElement(By.id("email")).sendKeys("alex@infactor.io");
+	
+		wd.findElement(By.id("password")).sendKeys("infactor");
+		Thread.sleep(6000);
+	
+		js.executeScript("window.scrollBy(0,400)");
+		Thread.sleep(2000);
+
+		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/"
+				+ "div/div[5]/section/div[2]/form/div[3]/button")).click();//login
+		Thread.sleep(10000); 
+		
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
+				+ "div/div[3]/section/div/div/div/div/table/tbody/tr[1]")).click(); //View details
+		
+		js.executeScript("window.scrollBy(0,425)");
+		Thread.sleep(2000);
+		
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[4]/section"
+				+ "/div/div/div[1]/div[17]/div[2]/button")).click(); // Pay to supplier button
+		
+		js.executeScript("window.scrollBy(0,350)");
+		Thread.sleep(8000);
+		
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
+				+ "div/div[4]/section/div/div/div[2]/div[4]/button")).click(); // Request payment
+		Thread.sleep(6000);
+		
+		wd.findElement(By.id("dropdownToggle")).click();//Dropdown
+		Thread.sleep(8000);
+								
+		wd.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/ul/li[2]/ul/li/a")).click();//logout
+	
+// 7. BUYER'S LOGIN - Invoice Payment
+//----------------------------------------------------------------------------------
+		wd.get("http://test.infactor.io/login");
+		Thread.sleep(1000); 
+				
+		wd.findElement(By.id("email")).sendKeys("gm@infactor.io");
+			
+		wd.findElement(By.id("password")).sendKeys("infactor");
+		Thread.sleep(6000);
+			
+		js.executeScript("window.scrollBy(0,400)");
+		Thread.sleep(2000);
+
+		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/"
+				+ "div/div[5]/section/div[2]/form/div[3]/button")).click(); //login
+		Thread.sleep(8000); 
+				
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
+				+ "div/div[3]/section/div/div/div/div/table/tbody/tr[1]")).click(); //View details
+		Thread.sleep(6000);
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[4]/section"
+				+ "/div/div/div/div[19]/div[2]/div[3]/button")).click(); // Pay Now
+		Thread.sleep(6000);
+				
+		wd.findElement(By.id("dropdownToggle")).click(); //Dropdown
+		Thread.sleep(8000);
+										
+		wd.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/ul/li[2]/ul/li/a")).click(); //logout
+				
+// 8. FINANCER'S LOGIN - Final Payment
+//----------------------------------------------------------------------------------
+		wd.get("http://test.infactor.io/login");
+		Thread.sleep(1000); 
+				
+		wd.findElement(By.id("email")).sendKeys("alex@infactor.io");
+			
+		wd.findElement(By.id("password")).sendKeys("infactor");
+		Thread.sleep(6000);
+			
+		js.executeScript("window.scrollBy(0,450)");
+		Thread.sleep(2000);
+
+		wd.findElement(By.xpath("/html/body/div[4]/div[2]/section/"
+				+ "div/div[5]/section/div[2]/form/div[3]/button")).click(); //login
+		Thread.sleep(8000); 
+				
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
+				+ "div/div[3]/section/div/div/div/div/table/tbody/tr[1]")).click(); //View details
+		Thread.sleep(6000);
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
+				+ "div/div[4]/section/div/div/div[2]/div[5]/button")).click(); // Final Payment-Pay Now
+		Thread.sleep(10000);
+				
+		js.executeScript("window.scrollBy(0,350)");
+		Thread.sleep(8000); 
+				
+		// Manually rate the supplier within 8 sec
+				
+		wd.findElement(By.id("description")).click(); // Rating Description
+		Thread.sleep(4000); 
+				
+		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
+				+ "div/div[7]/section/div/div/div/div[4]/button")).click(); // Submit button
+		Thread.sleep(6000);
+				
+		wd.findElement(By.id("dropdownToggle")).click(); //Dropdown
+		Thread.sleep(8000);
+										
+		wd.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/ul/li[2]/ul/li/a")).click(); //logout
 	}
 
 
