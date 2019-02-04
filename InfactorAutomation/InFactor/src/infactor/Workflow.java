@@ -33,9 +33,9 @@ public static void main(String[] args) throws Exception {
 		wd.get("http://test.infactor.io/login");
 		
 		// Resize current window to the set dimension
-	    wd.manage().window().maximize();
+	        wd.manage().window().maximize();
 	    
-	    // To Delay execution for 5 sec. as to view the maximize browser
+	       // To Delay execution for 5 sec. as to view the maximize browser
 	 	Thread.sleep(5000);
 	
 // 1. Supplier - Add invoice (*Once the calendar opens, select date manually within 10 sec)
@@ -113,9 +113,9 @@ public static void main(String[] args) throws Exception {
 		Thread.sleep(5000); //GRN date calendar
 	    
 //		//Fullpage screenshots
-	    Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(wd);
-	    ImageIO.write(fpScreenshot.getImage(),"PNG",new File("F:\\Screenshots\\infactor//IF_CreateReqForm.png"));
-	    Thread.sleep(4000);	
+	        Screenshot fpScreenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(1000)).takeScreenshot(wd);
+	        ImageIO.write(fpScreenshot.getImage(),"PNG",new File("F:\\Screenshots\\infactor//IF_CreateReqForm.png"));
+	        Thread.sleep(4000);	
 	    
 		wd.findElement(By.xpath("/html/body/div[4]/div[2]/div/button[2]")).click();// Click on Submit button
 		Thread.sleep(8000);
@@ -225,7 +225,7 @@ public static void main(String[] args) throws Exception {
 				+ "/div/div/div[1]/div[8]/div[4]/div")); 
 		Thread.sleep(2000);
 
-	    //Manually handle the slider within 8 sec
+	        //Manually handle the slider within 8 sec
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/div/div[4]/section"
 				+ "/div/div/div[1]/div[8]/div[4]/div/div/span[5]")).click(); //Estimated charges (Slider)
 		Thread.sleep(8000);
@@ -394,6 +394,9 @@ public static void main(String[] args) throws Exception {
 		Thread.sleep(8000);
 										
 		wd.findElement(By.xpath("/html/body/div[3]/div/div[2]/div/ul/li[2]/ul/li/a")).click(); //logout
+		Thread.sleep(4000);
+		wd.close();
+	
 	}
 
 
