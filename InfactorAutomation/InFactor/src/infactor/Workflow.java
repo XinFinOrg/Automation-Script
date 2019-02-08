@@ -393,7 +393,7 @@ public static void main(String[] args) throws Exception {
 				
 		// Manually rate the supplier within 8 sec
 				
-		wd.findElement(By.id("description")).sendKeys("Rating supplier"); // Rating Description
+		wd.findElement(By.id("description")).click(); // Rating Description
 		Thread.sleep(4000); 
 				
 		wd.findElement(By.xpath("/html/body/div[4]/div/div/section/"
