@@ -18,27 +18,27 @@ public class Bond_Creation {
 		
 		//Bond Creation form 
 		
-		wd.findElement(By.id("tokenName")).sendKeys("TradefinexBond");
+		wd.findElement(By.id("tokenName")).sendKeys("TradefinexBond"); //Bond name
 		
-		wd.findElement(By.id("tokenSymbol")).sendKeys("TFXB");
+		wd.findElement(By.id("tokenSymbol")).sendKeys("TFXB"); //Ticker
 		Thread.sleep(2000);
 		
-		wd.findElement(By.id("tokenSupply")).sendKeys("100000");
+		wd.findElement(By.id("tokenSupply")).sendKeys("100000"); //Token Supply
 		Thread.sleep(2000);
 		
 		js.executeScript("window.scrollBy(0,400)");
 		Thread.sleep(3000);
 		
-		wd.findElement(By.id("bonusRate")).sendKeys("100");
+		wd.findElement(By.id("bonusRate")).sendKeys("100"); //Minimum Contribution
 		
-		wd.findElement(By.id("ethRate")).sendKeys("10");
+		wd.findElement(By.id("ethRate")).sendKeys("10"); //Face Value
 		
-		wd.findElement(By.id("coupon")).sendKeys("10");
+		wd.findElement(By.id("coupon")).sendKeys("10"); //Coupon
 		
-		wd.findElement(By.id("tenure")).sendKeys("1");
+		wd.findElement(By.id("tenure")).sendKeys("1"); //Tenure (in Years)
  
-	    wd.findElement(By.id("defaultReal")).click(); 
-	    Thread.sleep(10000);
+	    	wd.findElement(By.id("defaultReal")).click(); //Enter Captcha
+	    	Thread.sleep(10000);
 		
 		wd.findElement(By.id("bond_create")).click(); // Create bond button
 		Thread.sleep(1000);
